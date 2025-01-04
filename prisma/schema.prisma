@@ -4,7 +4,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = env("postgres://tsdbadmin:arbrcp57cpo6858z@fvcykv01fj.uhunqxiy9a.tsdb.cloud.timescale.com:37747/tsdb?sslmode=require")
 }
 
 model GeneratedApp {
