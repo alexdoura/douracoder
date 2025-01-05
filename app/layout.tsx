@@ -2,18 +2,18 @@ import type { Metadata } from "next";
 import PlausibleProvider from "next-plausible";
 import "./globals.css";
 
-let title = "Llama Coder – AI Code Generator";
-let description = "Generate your next app with Llama 3.1 405B";
+let title = "Doura Coder – AI Code Generator";
+let description = "Code Smarter with the Largest AI Model Library.";
 let url = "https://llamacoder.io/";
 let ogimage = "https://llamacoder.io/og-image.png";
-let sitename = "llamacoder.io";
+let sitename = "douracoder";
 
 export const metadata: Metadata = {
   metadataBase: new URL(url),
   title,
   description,
   icons: {
-    icon: "/favicon.ico",
+    icon: "https://i.ibb.co/09mc9Yx/douracoder.png",
   },
   openGraph: {
     images: [ogimage],

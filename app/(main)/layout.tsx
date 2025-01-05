@@ -9,21 +9,13 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <body className="bg-brand antialiased">
-      <div className="absolute inset-x-0 flex justify-center">
-        <Image
-          src={bgImg}
-          alt=""
-          className="w-full max-w-[1200px] mix-blend-screen"
-          priority
-        />
-      </div>
+    <body className="bg-gradient-to-b from-gray-50 via-gray-100 to-blue-100 antialiased font-sans">
 
       <div className="isolate">
         <div className="mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-center py-2">
-          <Header />
+
           {children}
-          <Footer />
+
         </div>
       </div>
     </body>

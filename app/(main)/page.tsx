@@ -29,10 +29,6 @@ export default function Home() {
       value: "meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo",
     },
     {
-      label: "Qwen 2.5 Coder 32B",
-      value: "Qwen/Qwen2.5-Coder-32B-Instruct",
-    },
-    {
       label: "Llama 3.3 70B",
       value: "meta-llama/Llama-3.3-70B-Instruct-Turbo",
     },
@@ -147,27 +143,21 @@ export default function Home() {
   }, [loading, generatedCode]);
 
   return (
-    <main className="mt-12 flex w-full flex-1 flex-col items-center px-4 text-center sm:mt-20">
-      <a
-        className="mb-4 inline-flex h-7 shrink-0 items-center gap-[9px] rounded-[50px] border-[0.5px] border-solid border-[#E6E6E6] bg-[rgba(234,238,255,0.65)] bg-gray-100 px-7 py-5 shadow-[0px_1px_1px_0px_rgba(0,0,0,0.25)]"
-        href="https://dub.sh/together-ai/?utm_source=example-app&utm_medium=llamacoder&utm_campaign=llamacoder-app-signup"
-        target="_blank"
-      >
-        <span className="text-center">
-          Powered by <span className="font-semibold">Together AI</span>. Used by
-          <span className="font-semibold"> 600k+ users. </span>
-        </span>
-      </a>
+    <main className="mt-12 flex w-full flex-1 flex-col items-center justify-center px-4 text-center sm:mt-20">
+
       <h1 className="my-6 max-w-3xl text-4xl font-bold text-gray-800 sm:text-6xl">
-        Turn your <span className="text-blue-600">idea</span>
-        <br /> into an <span className="text-blue-600">app</span>
+        What would you like to <span className="text-blue-600">build</span>?
+        <br />
       </h1>
+      <p className="text-lg text-gray-500">
+        Prompt, Edit, Publish your new app in seconds.
+      </p>
 
       <form className="w-full max-w-xl" onSubmit={createApp}>
         <fieldset disabled={loading} className="disabled:opacity-75">
           <div className="relative mt-5">
-            <div className="absolute -inset-2 rounded-[32px] bg-gray-300/50" />
-            <div className="relative flex rounded-3xl bg-white shadow-sm">
+            <div className="absolute -inset-2 rounded-[28px]" />
+            <div className="relative flex rounded-2xl bg-white shadow-sm border border-gray-200 border-4">
               <div className="relative flex flex-grow items-stretch focus-within:z-10">
                 <textarea
                   rows={3}
@@ -176,20 +166,22 @@ export default function Home() {
                   onChange={(e) => setPrompt(e.target.value)}
                   name="prompt"
                   className="w-full resize-none rounded-l-3xl bg-transparent px-6 py-5 text-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500"
-                  placeholder="Build me a calculator app..."
+                  placeholder="How can Douracoder help you today?"
                 />
               </div>
+              <div className="flex items-center">
               <button
                 type="submit"
                 disabled={loading}
-                className="relative -ml-px inline-flex items-center gap-x-1.5 rounded-r-3xl px-3 py-2 text-sm font-semibold text-blue-500 hover:text-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500 disabled:text-gray-900"
+                className="flex items-right justify-bottom gap-x-1 rounded-md py-1 font-medium outline-offset-2 bg-blue-500 text-white hover:bg-blue-400 ml-auto mr-1.5 px-1.5 text-xs focus:bg-blue-600 focus:outline-0 focus-visible:outline-0 pl-1"
               >
                 {status === "creating" ? (
                   <LoadingDots color="black" style="large" />
                 ) : (
-                  <ArrowLongRightIcon className="-ml-0.5 size-6" />
+                  <ArrowLongRightIcon className="-ml-0.5 size-4 " />
                 )}
               </button>
+              </div>
             </div>
           </div>
           <div className="mt-6 flex flex-col justify-center gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -235,7 +227,7 @@ export default function Home() {
               </Select.Root>
             </div>
 
-            <div className="flex h-full items-center justify-between gap-3 sm:flex-col sm:items-start sm:justify-center sm:gap-2">
+            <div className="flex h-full items-center bg-blue-100 justify-between gap-3 sm:flex-col sm:items-start sm:justify-center sm:gap-2">
               <label className="text-gray-500 sm:text-sm" htmlFor="shadcn">
                 Quality
               </label>
@@ -378,7 +370,7 @@ export default function Home() {
                         );
                         setIsPublishing(false);
                         toast.success(
-                          `Your app has been published & copied to your clipboard! llamacoder.io/share/${appId}`,
+                          `Your app has been published & copied to your clipboard! douracoder.com/share/${appId}`,
                         );
                         navigator.clipboard.writeText(
                           `${domain}/share/${appId}`,

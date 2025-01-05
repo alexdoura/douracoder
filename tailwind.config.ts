@@ -14,9 +14,8 @@ const config: Config = {
         brand: "#E1E7EC",
         gray: colors.slate,
       },
-
       fontFamily: {
-        sans: ['"Aeonik"', ...defaultTheme.fontFamily.sans],
+        sans: ['Inter', ...defaultTheme.fontFamily.sans],
       },
     },
   },
