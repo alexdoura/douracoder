@@ -227,7 +227,7 @@ export default function Home() {
               </Select.Root>
             </div>
 
-            <div className="flex h-full items-center bg-blue-100 justify-between gap-3 sm:flex-col sm:items-start sm:justify-center sm:gap-2">
+            <div className="flex h-full items-center justify-between gap-3 sm:flex-col sm:items-start sm:justify-center sm:gap-2">
               <label className="text-gray-500 sm:text-sm" htmlFor="shadcn">
                 Quality
               </label>
