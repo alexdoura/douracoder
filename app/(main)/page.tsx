@@ -2,19 +2,16 @@
 
 import CodeViewer from "@/components/code-viewer";
 import { useScrollTo } from "@/hooks/use-scroll-to";
-import { domain } from "@/utils/domain";
 import { CheckIcon } from "@heroicons/react/16/solid";
 import { ArrowLongRightIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
 import { ArrowUpOnSquareIcon } from "@heroicons/react/24/outline";
 import * as Select from "@radix-ui/react-select";
 import * as Switch from "@radix-ui/react-switch";
-import * as Tooltip from "@radix-ui/react-tooltip";
 import { AnimatePresence, motion } from "framer-motion";
 import { FormEvent, useEffect, useState } from "react";
-import { toast, Toaster } from "sonner";
 import { ChatCompletionStream } from "together-ai/lib/ChatCompletionStream.mjs";
 import LoadingDots from "../../components/loading-dots";
-import { shareApp } from "./actions";
+
 import LightningBoltIcon from "@/components/icons/lightning-bolt";
 import LightbulbIcon from "@/components/icons/lightbulb";
 
@@ -353,7 +350,7 @@ export default function Home() {
                 </div>
               </fieldset>
             </form>
-            
+
           <div className="relative mt-8 w-full overflow-hidden">
             <div className="isolate">
               <CodeViewer code={generatedCode} showEditor />
