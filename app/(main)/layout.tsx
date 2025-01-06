@@ -9,7 +9,7 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <body className="bg-gray-100 antialiased font-sans">
+    <body className="overflow-hidden bg-gradient-to-b from-slate-900 via-blue-900 to-slate-900">
 
       <div className="isolate">
         <div className="mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-center py-2">
