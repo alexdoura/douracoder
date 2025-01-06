@@ -29,12 +29,20 @@ export default function Home() {
       value: "meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo",
     },
     {
-      label: "Llama 3.3 70B",
+      label: "Claude 3.5 Sonnet",
       value: "meta-llama/Llama-3.3-70B-Instruct-Turbo",
     },
     {
-      label: "Gemma 2 27B",
+      label: "Gemini 1.5 Pro",
       value: "google/gemma-2-27b-it",
+    },
+    {
+      label: "Chatgpt-o1",
+      value: "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",
+    },
+    {
+      label: "Douracoder",
+      value: "meta-llama/Llama-3.3-70B-Instruct-Turbo",
     },
   ];
   let [model, setModel] = useState(models[0].value);
@@ -143,37 +151,37 @@ export default function Home() {
   }, [loading, generatedCode]);
 
   return (
-    <main className="mt-12 flex w-full flex-1 flex-col items-center justify-center px-4 text-center sm:mt-20">
+    <main className=" mt-12 flex w-full flex-1 flex-col items-center justify-center px-4 text-center sm:mt-20">
 
-      <h1 className="my-6 max-w-3xl text-4xl font-bold text-gray-800 sm:text-6xl">
+      <h1 className="my-6 max-w-3xl text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 sm:text-6xl">
         What would you like to <span className="text-blue-600">build</span>?
         <br />
       </h1>
-      <p className="text-lg text-gray-500">
+      <p className="text-lg text-gray-400">
         Prompt, Edit, Publish your new app in seconds.
       </p>
 
-      <form className="w-full max-w-xl" onSubmit={createApp}>
+      <form className="relative mt-5" onSubmit={createApp}>
         <fieldset disabled={loading} className="disabled:opacity-75">
           <div className="relative mt-5">
             <div className="absolute -inset-2 rounded-[28px]" />
-            <div className="relative flex rounded-2xl bg-white shadow-sm border border-gray-200 border-4">
-              <div className="relative flex flex-grow items-stretch focus-within:z-10">
+            <div className=" elative flex bg-white/5 backdrop-blur-sm border-2 border-white/10 rounded-xl overflow-hidden">
+              <div className="relative flex flex-grow items-stretch focus-within:z-10 text-white">
                 <textarea
                   rows={3}
                   required
                   value={prompt}
                   onChange={(e) => setPrompt(e.target.value)}
                   name="prompt"
-                  className="w-full resize-none rounded-l-3xl bg-transparent px-6 py-5 text-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500"
+                  className="flex-1 resize-none bg-transparent px-6 py-5 text-lg text-white focus-visible:outline-none"
                   placeholder="How can Douracoder help you today?"
                 />
               </div>
-              <div className="flex items-center">
+              <div className="flex items-center justify-end">
               <button
                 type="submit"
                 disabled={loading}
-                className="flex items-right justify-bottom gap-x-1 rounded-md py-1 font-medium outline-offset-2 bg-blue-500 text-white hover:bg-blue-400 ml-auto mr-1.5 px-1.5 text-xs focus:bg-blue-600 focus:outline-0 focus-visible:outline-0 pl-1"
+                className=" gap-x-1 rounded-md py-1 font-medium outline-offset-2 bg-blue-500 text-white hover:bg-blue-400 ml-auto mr-1.5 px-1.5 text-xs focus:bg-blue-600 focus:outline-0 focus-visible:outline-0 pl-1"
               >
                 {status === "creating" ? (
                   <LoadingDots color="black" style="large" />
@@ -186,27 +194,27 @@ export default function Home() {
           </div>
           <div className="mt-6 flex flex-col justify-center gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center justify-between gap-3 sm:grow sm:flex-col sm:items-start sm:justify-center sm:gap-2">
-              <p className="text-gray-500 sm:text-sm">Model</p>
+              <p className="text-gray-400 sm:text-sm">Model</p>
               <Select.Root
                 name="model"
                 disabled={loading}
                 value={model}
                 onValueChange={(value) => setModel(value)}
               >
-                <Select.Trigger className="group flex w-60 max-w-xs items-center rounded-2xl border-[6px] border-gray-300 bg-white px-4 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500">
+                <Select.Trigger className="group flex w-60 max-w-xs text-white items-center rounded-xl border-2 border-gray-600 bg-white/5 px-4 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500">
                   <Select.Value />
                   <Select.Icon className="ml-auto">
-                    <ChevronDownIcon className="size-6 text-gray-300 group-focus-visible:text-gray-500 group-enabled:group-hover:text-gray-500" />
+                    <ChevronDownIcon className="size-6 group-focus-visible:text-gray-300 group-enabled:group-hover:text-gray-300" />
                   </Select.Icon>
                 </Select.Trigger>
                 <Select.Portal>
-                  <Select.Content className="overflow-hidden rounded-md bg-white shadow-lg">
+                  <Select.Content className="overflow-hidden rounded-md bg-slate-800 shadow-lg text-white">
                     <Select.Viewport className="p-2">
                       {models.map((model) => (
                         <Select.Item
                           key={model.value}
                           value={model.value}
-                          className="flex cursor-pointer items-center rounded-md px-3 py-2 text-sm data-[highlighted]:bg-gray-100 data-[highlighted]:outline-none"
+                          className=" flex cursor-pointer items-center rounded-xl px-3 py-2 text-sm data-[highlighted]:bg-slate-600 data-[highlighted]:outline-none"
                         >
                           <Select.ItemText asChild>
                             <span className="inline-flex items-center gap-2 text-gray-500">
@@ -215,7 +223,7 @@ export default function Home() {
                             </span>
                           </Select.ItemText>
                           <Select.ItemIndicator className="ml-auto">
-                            <CheckIcon className="size-5 text-blue-600" />
+                            <CheckIcon className="size-5 text-white" />
                           </Select.ItemIndicator>
                         </Select.Item>
                       ))}
@@ -228,7 +236,7 @@ export default function Home() {
             </div>
 
             <div className="flex h-full items-center justify-between gap-3 sm:flex-col sm:items-start sm:justify-center sm:gap-2">
-              <label className="text-gray-500 sm:text-sm" htmlFor="shadcn">
+              <label className="text-gray-400 sm:text-sm" htmlFor="shadcn">
                 Quality
               </label>
               <Select.Root
@@ -237,18 +245,18 @@ export default function Home() {
                 value={quality}
                 onValueChange={setQuality}
               >
-                <Select.Trigger className="group flex w-56 max-w-xs items-center rounded-2xl border-[6px] border-gray-300 bg-white px-4 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500">
+                <Select.Trigger className="group flex w-56 max-w-xs items-center rounded-xl border-2 border-gray-600 bg-white/5 px-4 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500">
                   <Select.Value />
                   <Select.Icon className="ml-auto">
                     <ChevronDownIcon className="size-6 text-gray-300 group-focus-visible:text-gray-500 group-enabled:group-hover:text-gray-500" />
                   </Select.Icon>
                 </Select.Trigger>
                 <Select.Portal>
-                  <Select.Content className="overflow-hidden rounded-md bg-white shadow-lg">
+                  <Select.Content className="overflow-hidden rounded-md bg-slate-800 shadow-lg text-white">
                     <Select.Viewport className="p-2">
                       <Select.Item
                         value="low"
-                        className="flex cursor-pointer items-center rounded-md px-3 py-2 text-sm data-[highlighted]:bg-gray-100 data-[highlighted]:outline-none"
+                        className="flex cursor-pointer items-center rounded-md px-3 py-2 text-sm data-[highlighted]:bg-slate-600 data-[highlighted]:outline-none"
                       >
                         <Select.ItemText asChild>
                           <span className="inline-flex items-center gap-1.5 text-gray-500">
@@ -262,7 +270,7 @@ export default function Home() {
                       </Select.Item>
                       <Select.Item
                         value="high"
-                        className="flex cursor-pointer items-center rounded-md px-3 py-2 text-sm data-[highlighted]:bg-gray-100 data-[highlighted]:outline-none"
+                        className="flex cursor-pointer items-center rounded-md px-3 py-2 text-sm data-[highlighted]:bg-slate-600 data-[highlighted]:outline-none"
                       >
                         <Select.ItemText asChild>
                           <span className="inline-flex items-center gap-1.5 text-gray-500">
@@ -283,11 +291,11 @@ export default function Home() {
             </div>
 
             <div className="flex h-full items-center justify-between gap-3 sm:flex-col sm:items-start sm:justify-center sm:gap-2">
-              <label className="text-gray-500 sm:text-sm" htmlFor="shadcn">
+              <label className="text-gray-400 sm:text-sm" htmlFor="shadcn">
                 shadcn/ui
               </label>
               <Switch.Root
-                className="group flex w-20 max-w-xs items-center rounded-2xl border-[6px] border-gray-300 bg-white p-1.5 text-sm shadow-inner transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500 data-[state=checked]:bg-blue-500"
+                className="group flex w-20 max-w-xs items-center rounded-xl border-2 border-gray-600 bg-white/5 p-1.5 text-sm shadow-inner transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500 data-[state=checked]:bg-blue-900/20"
                 id="shadcn"
                 name="shadcn"
                 checked={shadcn}
