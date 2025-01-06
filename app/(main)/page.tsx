@@ -358,50 +358,7 @@ export default function Home() {
               <Tooltip.Provider>
                 <Tooltip.Root>
                   <Tooltip.Trigger asChild>
-                    <button
-                      disabled={loading || isPublishing}
-                      onClick={async () => {
-                        setIsPublishing(true);
-                        let userMessages = messages.filter(
-                          (message) => message.role === "user",
-                        );
-                        let prompt =
-                          userMessages[userMessages.length - 1].content;
-
-                        const appId = await minDelay(
-                          shareApp({
-                            generatedCode,
-                            prompt,
-                            model: initialAppConfig.model,
-                          }),
-                          1000,
-                        );
-                        setIsPublishing(false);
-                        toast.success(
-                          `Your app has been published & copied to your clipboard! douracoder.com/share/${appId}`,
-                        );
-                        navigator.clipboard.writeText(
-                          `${domain}/share/${appId}`,
-                        );
-                      }}
-                      className="inline-flex h-[68px] w-40 items-center justify-center gap-2 rounded-3xl bg-blue-500 transition enabled:hover:bg-blue-600 disabled:grayscale"
-                    >
-                      <span className="relative">
-                        {isPublishing && (
-                          <span className="absolute inset-0 flex items-center justify-center">
-                            <LoadingDots color="white" style="large" />
-                          </span>
-                        )}
-
-                        <ArrowUpOnSquareIcon
-                          className={`${isPublishing ? "invisible" : ""} size-5 text-xl text-white`}
-                        />
-                      </span>
-
-                      <p className="text-lg font-medium text-white">
-                        Publish app
-                      </p>
-                    </button>
+                    
                   </Tooltip.Trigger>
                   <Tooltip.Portal>
                     <Tooltip.Content
