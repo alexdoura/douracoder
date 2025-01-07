@@ -165,7 +165,7 @@ export default function Home() {
         <fieldset disabled={loading} className="disabled:opacity-75">
           <div className="relative mt-5">
             <div className="absolute -inset-2 rounded-[28px]" />
-            <div className=" elative flex bg-white/5 backdrop-blur-sm border-2 border-white/10 rounded-xl overflow-hidden">
+            <div className="p-2 flex flex-col gap-2 rounded-xl bg-white/5 backdrop-blur-sm border-2 border-white/10 group transition-colors duration-150 w-full">
               <div className="relative flex flex-grow items-stretch focus-within:z-10 text-white">
                 <textarea
                   rows={3}
@@ -177,11 +177,11 @@ export default function Home() {
                   placeholder="How can Douracoder help you today?"
                 />
               </div>
-              <div className="flex items-center justify-end">
+              <div className="flex gap-1 items-end flex-wrap">
               <button
                 type="submit"
                 disabled={loading}
-                className=" gap-x-1 rounded-md py-1 font-medium outline-offset-2 bg-blue-500 text-white hover:bg-blue-400 ml-auto mr-1.5 px-1.5 text-xs focus:bg-blue-600 focus:outline-0 focus-visible:outline-0 pl-1"
+                className=" inline-flex items-center justify-center whitespace-nowrap text-sm font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none bg-blue-500 hover:bg-blue-400 focus:bg-blue-600 text-white ml-auto px-2 py-1 rounded-md gap-1"
               >
                 {status === "creating" ? (
                   <LoadingDots color="black" style="large" />
