@@ -182,7 +182,7 @@ export default function Home() {
                 type="submit"
                 disabled={loading}
                 className=" inline-flex items-center justify-center whitespace-nowrap text-sm font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none bg-blue-500 hover:bg-blue-400 focus:bg-blue-600 text-white ml-auto px-2 py-1 rounded-md gap-1"
-              >
+              >Create
                 {status === "creating" ? (
                   <LoadingDots color="black" style="large" />
                 ) : (
