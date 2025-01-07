@@ -327,14 +327,14 @@ export default function Home() {
             <form className="w-full" onSubmit={updateApp}>
               <fieldset disabled={loading} className="group">
                 <div className="relative">
-                  <div className="relative flex rounded-3xl bg-white shadow-sm group-disabled:bg-gray-50">
+                  <div className="relative flex rounded-xl bg-white/5 shadow-sm border-2 border-white/10">
                     <div className="relative flex flex-grow items-stretch focus-within:z-10">
                       <input
                         required
                         name="modification"
                         value={modification}
                         onChange={(e) => setModification(e.target.value)}
-                        className="w-full rounded-l-3xl bg-transparent px-6 py-5 text-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500 disabled:cursor-not-allowed"
+                        className="w-full text-gray-300 rounded-l-xl bg-transparent px-6 py-5 text-lg disabled:cursor-not-allowed"
                         placeholder="Make changes to your app here"
                       />
                     </div>
