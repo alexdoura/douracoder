@@ -4,7 +4,7 @@ import "./globals.css";
 
 let title = "Doura Coder – AI Code Generator";
 let description = "Code Smarter with the Largest AI Model Library.";
-let url = "https://llamacoder.io/";
+let url = "https://douracoder.vercel.app";
 let ogimage = "https://llamacoder.io/og-image.png";
 let sitename = "douracoder";
 
